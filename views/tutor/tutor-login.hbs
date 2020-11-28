@@ -1,0 +1,28 @@
+<section class="login">
+  <div class="background">
+    <a href="/">
+      <img src="/images/14df067f-1881-4ae9-bdbc-e63a69fd4c91_200x200.png" style="height: 7rem;" alt="">
+    </a>
+    <div class="login-box">
+      <h1>Login</h1>
+
+      <form action="/tutor/tutor-login" method="POST">
+        {{#if tutorLogginErr}}
+        <p class="error" style="color: beige;">{{tutorLogginErr}}</p>
+        {{/if}}
+
+        <div class="textbox">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input type="text" id="username" name="username" placeholder="Username" />
+        </div>
+
+        <div class="textbox">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <input type="password" placeholder="Password" name="password" />
+        </div>
+
+        <button class="signinbtn">Sign In</button>
+      </form>
+    </div>
+  </div>
+</section>
