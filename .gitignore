@@ -1,4 +1,3 @@
-node-modules/
 public/Announcement
 public/Assignments
 public/Class
@@ -8,4 +7,5 @@ public/Profile-Pic
 public/Student-Pic
 public/Submitted-Assignments
 public/Notes
+node-modules
 
