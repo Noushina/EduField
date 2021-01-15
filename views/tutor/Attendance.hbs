@@ -1,0 +1,64 @@
+<section>
+  <div class="backdrop">
+    <div class="col-12 " style="text-align: center; margin-top:2rem;">
+      <h3>Attendence Register</h3>
+      <p>Selet Date: <input type="text" id="datepicker" onchange="getDate()"></p>
+      <h5>{{date}}</h5>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="tableHead">
+          <th scope="col">Reg No</th>
+          <th scope="col">Name</th>
+          <th></th>
+          <th scope="col">Attendence</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each attendance}}
+        <tr>
+          <td>{{this.regno}}</td>
+          <td>{{this.sname}}</td>
+          <td></td>
+          {{#if this.attendance}}
+          <td>Present</td>
+          {{else}}
+          <td>Absent</td>
+          {{/if}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    $("#datepicker").datepicker({ dateFormat: "d/m/yy" });
+  });
+</script>
+<script>
+  let getDate = function () {
+    var date = document.getElementById('datepicker').value
+    console.log(date)
+    $.ajax({
+      url: "/tutor/AttendanceDetails",
+      method: 'post',
+      data: {
+        date,
+      },
+      success: (response) => {
+        location.href = '/tutor/Attendance'
+
+      }
+    })
+  }
+
+
+</script>

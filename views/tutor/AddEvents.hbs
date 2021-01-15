@@ -1,0 +1,212 @@
+<section>
+    <div class="container profile backdrop ">
+
+
+        <div class="panel-body">
+            <div style="margin-bottom: 5%; padding-left: 20%;">
+                <h3>Events</h3>
+            </div>
+            <div class="form-horizontal">
+                <form id="myForm" action="" enctype="multipart/form-data">
+                    <div class="form">
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="control-label">Event:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="Event" placeholder="Event" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Conducted by:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="ConductedBy"
+                                        placeholder="Organisation" required>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Topic:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="topic" placeholder="Topic" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Video:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input type="file" name="video" accept="video/mp4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Image:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input type="file" name="image" accept="image/jpeg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Date:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="date" name="date" placeholder="dd/mm/yy" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Place:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="place" placeholder="At" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Type:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input type="radio" id="free" name="type" value="Free" checked>
+                                    <label for="free">Free</label><br>
+                                    <input type="radio" id="paid" name="type" value="Paid">
+                                    <label for="paid">Paid</label><br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id='payment' style="visibility: hidden;">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Amount:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="number" name="amount" placeholder="$" value="0">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button class="btn btn-success save " type="submit" id="submit">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="progress">
+                    <div class="bar" id="bar" style="background-color: blue;"></div>
+                    <div class="percent">0%</div>
+                </div>
+
+
+            </div> <!-- end form-horizontal -->
+        </div> <!-- end panel-body -->
+
+    </div> <!-- end container-fluid -->
+</section>
+<script>
+
+    $(document).ready(function () {
+        $("#paid").click(function () {
+            $('#payment').css('visibility', 'visible');
+        });
+        $("#free").click(function () {
+            $('#payment').css('visibility', 'hidden');
+        });
+    });
+</script>
+<script>
+    $(document).on('click', "#submit", function (e) {
+        e.preventDefault();
+
+        var formData = new FormData($("#myForm")[0]);
+        console.log(formData)
+        $.ajax({
+
+
+            url: "/tutor/AddEvents",
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            enctype: 'multipart/form-data',
+
+
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        percentComplete = parseInt(percentComplete * 100);
+                        console.log(percentComplete);
+                        var percentVal = percentComplete + '%';
+                        $('.bar').width(percentVal);
+                        $('.percent').html(percentVal)
+
+
+
+
+
+
+                        if (percentComplete === 100) {
+                            location.href = '/tutor/tutorIn'
+                        }
+
+                    }
+                }, false);
+
+                return xhr;
+            }
+
+
+
+
+
+        })
+    })
+</script>

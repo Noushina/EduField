@@ -1,0 +1,51 @@
+<section class="login">
+
+  <div class="background">
+    <div id="preloader"></div>
+    <a href="/">
+      <img src="/images/14df067f-1881-4ae9-bdbc-e63a69fd4c91_200x200.png" style="height: 7rem;" alt="">
+    </a>
+    <div class="login-box">
+      <h1>Login by OTP Verification</h1>
+
+      <form action="" method="POST">
+        <div class="textbox">
+          <i class="fas fa-mobile-alt"></i></i>
+          <input type="text" id="mobileNum" name="mobile" placeholder="Mobile No" />
+        </div>
+        <a class="btn signinbtn" onclick="generateOtp()">Send OTP</a>
+        <div id="confirm" style="display: none;" class="col-9 alert alert-success">OTP sended</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  let generateOtp = function () {
+    console.log("here")
+    let num = document.getElementById('mobileNum').value
+    console.log(num)
+    let confirm = document.getElementById('confirm')
+    $.ajax({
+      url: '/send-otp',
+      method: 'post',
+      data: { mobile: num },
+      success: (response) => {
+
+        console.log(response)
+        if (response.otp) {
+          console.log('otp generted ' + num)
+
+          location.href = '/verify'
+
+        } else {
+          swal({
+            title: "Oops!",
+            text: "Please enter a registered mobile number!",
+            icon: "warning",
+          });
+        }
+      }
+    })
+  }
+</script>

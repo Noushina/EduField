@@ -1,0 +1,58 @@
+{{#each students}}
+<section class="">
+
+
+    <div class="profile">
+        <div class="profile-row">
+
+            <div class="profile-wrap">
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-md-9">
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-5">
+                                <label for="" style="font-size: 20px; font-weight: 500;">Name :</label>
+                            </div>
+                            <div class="col-md-7" style="font-size: 18px; font-weight: 500;">{{this.Sname}} </div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-5">
+                                <label for="" style="font-size: 20px; font-weight: 500;">Reg No:</label>
+                            </div>
+                            <div class="col-md-7" id="Regno" style="font-size: 18px; font-weight: 500;">{{this.Regno}}
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-5">
+                                <label for="" style="font-size: 20px; font-weight: 500;">Mobile No:</label>
+                            </div>
+                            <div class="col-md-7" style="font-size: 18px; font-weight: 500;">{{this.Smobile}}</div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-5">
+                                <label for="" style="font-size: 20px; font-weight: 500;">Email:</label>
+                            </div>
+                            <div class="col-md-7" style="font-size: 18px; font-weight: 500;">{{this.Semail}}</div>
+                        </div>
+                        <div class="row" style="margin-top: 20px;">
+                            <div class="col-md-5">
+                                <label for="" style="font-size: 20px; font-weight: 500;">Address:</label>
+                            </div>
+                            <div class="col-md-7" style="font-size: 18px; font-weight: 500;">{{this.Saddress}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 profile-wrap" style="margin-top: 60px;">
+                <div class="personal">
+                    <img src="/Student-Pic/{{this._id}}.jpg" alt="">
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    {{/each}}
+
+</section>

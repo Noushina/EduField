@@ -1,0 +1,54 @@
+<section>
+    <div class=" backdrop" style="align-items: center;">
+        {{#each announcement}}
+        <div style="margin-top: 20px;">
+            <div style="text-align: center;">
+                <h5>{{this.date}}</h5>
+
+            </div>
+            <div class="row pt-5 pb-5" style="border: aquamarine,solid;">
+                <div class="col-md-5">
+                    <h4>Subject</h4>
+                </div>
+                <div class="col-md-7">: {{this.message}} </div>
+            </div>
+            <div class="row" style="border: aquamarine,solid;">
+                <div class="col-md-5">
+                    <h4>Description</h4>
+                </div>
+                <div class="col-md-7">: {{this.description}}</div>
+            </div>
+
+            <div class="row pt-5">
+
+                <div class="col-md-4" style="text-align: center;align-items: center;">
+                    <h4>pdf</h4>
+
+                    <a class="pdf" href="/Announcement/{{this._id}}.pdf"><i class="far fa-file-pdf"
+                            style="margin-top:50px!important ; font-size: 50px;"></i></i></a>
+                </div>
+                <div class="col-md-4" style="text-align: center;align-items: center;">
+                    <h4>Image</h4>
+                    <img src="/Announcement/{{this._id}}.jpg" style="height: 200px;width:200px" alt="">
+
+                </div>
+                <div class="col-md-4" style="text-align: center;align-items: center;">
+                    <h4>Video</h4>
+                    <video src="/Announcement/{{this._id}}.mp4" type="video/mp4" style="width: 250px; height:200px;"
+                        controls>
+
+                    </video>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+            <hr>
+            {{/each}}
+        </div>
+</section>

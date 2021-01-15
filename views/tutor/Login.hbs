@@ -6,7 +6,7 @@
     <div class="login-box">
       <h1>Login</h1>
 
-      <form action="/tutor/tutor-login" method="POST">
+      <form action="/tutor/Login" method="POST">
         {{#if tutorLogginErr}}
         <p class="error" style="color: beige;">{{tutorLogginErr}}</p>
         {{/if}}
@@ -18,11 +18,25 @@
 
         <div class="textbox">
           <i class="fa fa-lock" aria-hidden="true"></i>
-          <input type="password" placeholder="Password" name="password" />
-        </div>
+ <input type="password" placeholder="Password" name="password" id="myInput"/>
+<span class=" fa fa-eye t" onclick="myFunction()" style=" color:white">        </div>
 
         <button class="signinbtn">Sign In</button>
       </form>
     </div>
   </div>
 </section>
+
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+
+</script>

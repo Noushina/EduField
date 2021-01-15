@@ -1,0 +1,37 @@
+<section>
+  <div class="students">
+    <div class="col-12 " style="text-align: center; margin-top:2rem;">
+      <h3>Event Register</h3>
+
+
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="tableHead">
+          <th scope="col">Date</th>
+          <th scope="col">Event</th>
+          <th scope="col">Students</th>
+
+          <th scope="col">Register No</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {{#each eventRegistery}}
+        <tr>
+
+          <th scope="row">{{this.dateString}} </th>
+          <td>{{this.events}} </td>
+          <td>{{this.name}}</td>
+
+          <td>{{this.regNo}} </td>
+
+
+        </tr>
+        {{/each}}
+
+      </tbody>
+    </table>
+  </div>
+</section>

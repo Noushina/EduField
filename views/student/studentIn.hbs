@@ -1,19 +1,23 @@
 <section>
   <div class="Main">
     <div class="tutorHome">
-      <div class="col-md-12  p-0">
+
+      <div class=" col-md-12 ">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block w-100" src="https://tps.edu.in/images/gallery/1.jpg" alt="First slide">
+              <img class="d-block w-100"
+                src="https://www.pondot.com/wp-content/uploads/2018/11/motivational_quotes_for_Students_success-3.jpg"
+                alt="First slide">
             </div>
             <div class="carousel-item">
               <img class="d-block w-100"
-                src="https://www.hpsramanthapur.org/wp-content/uploads/2020/02/Inter-House-Quiz-Competition-2019-20-600x300.jpg"
+                src="https://i.cdn.talentegg.ca/incubator/wp-content/uploads/2012/07/quote-7-thomas-a-edison-1.jpg"
                 alt="Second slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block w-100" src="" alt="Third slide">
+              <img class="d-block w-100" src="https://skyprep.com/wp-content/uploads/2013/07/Alfred_Quotes1.jpg"
+                alt="Third slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -28,7 +32,6 @@
       </div>
 
     </div>
-
     <div class="">
       <div class="col-md-12 " style="text-align: center; margin-top:2rem;">
         <div class="row">
@@ -39,7 +42,7 @@
               </h1>
               {{#each announcement}}
               <div>
-                <a href="/tutor/Announcement" style="color: black; font-size: 15px;"><i
+                <a href="/Announcement" style="color: black; font-size: 15px;"><i
                     class="fas fa-caret-right"></i>{{this.message}}</a>
 
               </div>
@@ -58,7 +61,7 @@
                 <p style="color: black; font-size: 15px;"><i class="fas fa-caret-right"></i>{{this.Event}} on
                   {{this.date}} at
                   {{this.place}}</p>
-                <a class="btn btn-primary" href=" /tutor/Events/{{this._id}}">Continue>></a>
+                <a class="btn btn-primary" href=" /EventDetails/{{this._id}}">Continue>></a>
 
               </div>
               {{/each}}
@@ -68,6 +71,5 @@
         </div>
       </div>
     </div>
-  </div>
 
 </section>

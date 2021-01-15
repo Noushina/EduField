@@ -1,0 +1,152 @@
+<div class="container uprofile">
+
+
+    <div class="panel-body">
+        <div style="margin-bottom: 5%; padding-left: 20%;">
+            <h3>Edit Student Details</h3>
+        </div>
+        <div class="form-horizontal">
+            <form action="/tutor/EditStudent/{{student._id}}" enctype="multipart/form-data" method="POST">
+                <div class="form">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label">Reg No:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Regno" placeholder="Reg No"
+                                    value="{{student.Regno}}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Name:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Sname" value="{{student.Sname}}"
+                                    placeholder="Student's Name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label"> Profile Pic:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <img src="/Student-Pic/{{ student._id}}.jpg" alt="" style="width: 100px;hight:auto"
+                                    id="imgView" class="pt-3 pb-3">
+                                <input type="file" class="" name="image" id="image" accept="image/jpeg"
+                                    style="overflow: hidden;" onchange="viewImage(event)">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Gender:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input type="radio" id="male" name="gender" value="{{student.gender}}" required>
+                                <label for="male">Male</label><br>
+                                <input type="radio" id="female" name="gender" value=" {{student.gender}}" required>
+                                <label for="female">Female</label><br>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Mobile:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="tel" name="Smobile" value="{{student.Smobile}}"
+                                    placeholder="Mobile" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Email:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="email" name="Semail" value="{{student.Semail}}"
+                                    placeholder="example@gmail.com" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Address:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <textarea class="form-control" type="text" name="Saddress" value="{{student.Saddress}}"
+                                    placeholder="Address" required>
+                            </textarea>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Username:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Username" value="{{student.Username}}"
+                                    placeholder="Address" required>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-2">
+                                <label class="control-label">Password:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Spassword" placeholder="Password"
+                                    value="{{student.Spassword}}" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-primary " type="submit">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> <!-- end form-horizontal -->
+    </div> <!-- end panel-body -->
+
+</div> <!-- end container-fluid -->
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

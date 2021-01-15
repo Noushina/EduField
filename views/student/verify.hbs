@@ -1,0 +1,41 @@
+<section class="login">
+  <div class="background">
+    <a href="/">
+      <img src="/images/14df067f-1881-4ae9-bdbc-e63a69fd4c91_200x200.png" style="height: 7rem;" alt="">
+    </a>
+    <div class="login-box">
+      <h1>Verify Your OTP</h1>
+      <form action="" method="POST">
+        <div class="textbox">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input type="text" id="otp" name="OTP" placeholder="OTP" />
+        </div>
+        <a class="btn signinbtn" onclick="verifyOtp(otp)">Verify OTP</a>
+      </form>
+    </div>
+  </div>
+</section>
+<script>
+  let verifyOtp = function () {
+    console.log('ddddddddddddddd')
+
+    let Otp = document.getElementById('otp').value
+    console.log(Otp)
+    $.ajax({
+      url: '/verify-otp',
+      method: 'post',
+      data: { otp: Otp },
+      success: (response) => {
+        if (response.status) {
+          console.log('successss')
+          location.href = '/studentIn'
+        } else {
+          alert(response.error)
+          location.href = '/sendmessage'
+
+        }
+      }
+    })
+  }
+
+</script>

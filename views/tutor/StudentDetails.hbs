@@ -1,0 +1,143 @@
+<section class="">
+    <div class="backdrop profile">
+        <div class="profile-row">
+
+            <div class="profile-wrap">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+                            <p id="id" hidden>{{student._id}}</p>
+                            <div class="col-md-5">
+                                <label style="font-weight: 600;" for="">Name :</label>
+                            </div>
+                            <div class="col-md-7">{{student.Sname}} </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label style="font-weight: 600;" for="">Reg No:</label>
+                            </div>
+                            <div class="col-md-7" id="Regno">{{student.Regno}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label style="font-weight: 600;" for="">Class:</label>
+                            </div>
+                            <div class="col-md-7" id="Regno">{{student.Class}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label style="font-weight: 600;" for="">Semester:</label>
+                            </div>
+                            <div class="col-md-7" id="Regno">{{student.Semester}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label style="font-weight: 600;" for="">Mobile No:</label>
+                            </div>
+                            <div class="col-md-7">{{student.Smobile}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <labelstyle="font-weight: 600;" for="">Email:</label>
+                            </div>
+                            <div class="col-md-7">{{student.Semail}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-5">
+                                <label style="font-weight: 600;" for="">Address:</label>
+                            </div>
+                            <div class="col-md-7">{{student.Saddress}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 profile-wrap">
+                <div class="personal">
+                    <img src="/Student-Pic/{{student._id}}.jpg" alt="">
+                </div>
+
+            </div>
+
+        </div>
+        <div class="">
+            <div class="col-md-12 " style="text-align: center; margin-top:2rem;">
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <h3 style="margin:20px!important;">Assignments</h3>
+                        <table class="table">
+                            <thead>
+                                <tr class="tableHead">
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Topic</th>
+                                    <th scope="col">Pdf</th>
+                                    <th scope="col">Mark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each assignmentSubmitted}}
+                                <tr>
+                                    <th scope="row">{{this.date}} </th>
+                                    <td>{{this.topic}} </td>
+                                    <td><a class="pdf" title="Open" href="/Submitted-Assignments/{{this._id}}.pdf"><i
+                                                class="far fa-file-pdf"></i>
+                                            </i></a></td>
+                                    <td>
+                                        <form action="/tutor/SaveMark/{{this._id}}" method="POST">
+                                            <input name="mark" style="width: 39px;" value="{{this.mark.mark}}"
+                                                type="text">
+                                            <a type="submit" style="color: rgb(86, 114, 241);font-size: 20px;"
+                                                title="Save">Save</a>
+                                        </form>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class=" col-md-6 ">
+                        <div>
+                            <div class="" style=" text-align: center;">
+                                <h3 style="margin:20px!important;">Attendence Register</h3>
+
+
+
+
+                            </div>
+                            <table class="table ">
+                                <thead>
+                                    <tr class="tableHead">
+                                        <th scope="col">Date</th>
+                                        <th scope="col"></th>
+                                        <th></th>
+                                        <th scope="col">Attendence</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each attendance}}
+
+
+                                    <tr>
+
+                                        <td>{{this}}</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Present</td>
+
+                                    </tr>
+                                    {{/each}}
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>

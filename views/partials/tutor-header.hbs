@@ -2,57 +2,52 @@
 <header>
 
   <div class="sidenav">
-    <a href="#about">{{Tutor.username}}
+    {{#if Profile}}
+    {{#each Profile}}
+    <a href="#about">{{this.Name}}
+
+
+
+      <img class="rounded-circle" src="/Profile-Pic/{{this._id}}.jpg" alt="">
+      {{/each}}
+      {{else}}
       <img class="rounded-circle" src="/images/20180221_081521-1.jpg" alt="">
+      {{/if}}
     </a>
     <hr>
-    <a href="#services">Home</a>
+    <a href="/tutor/tutorIn">Home</a>
     <hr>
-    <a href="#clients">Profile</a>
+    <a href="/tutor/Profile">Profile</a>
     <hr>
-    <a href="#contact">Students</a>
-     <hr>
-   
-    <a href="#contact">Attendence</a>
-     <hr>
-    <a href="#contact">Assignments</a>
-     <hr>
-    <a href="#contact">Notes</a>
-     <hr>
-    <a href="#contact">Announcement</a>
+    <a href="/tutor/StudentList">Students</a>
     <hr>
-    <a href="">Events</a>
+
+    <a href="/tutor/Attendance">Attendence</a>
     <hr>
-    <a href="">Photos</a>
+    <a href="/tutor/Assignment">Assignments</a>
+    <hr>
+    <a href="/tutor/Notes">Notes</a>
+    <hr>
+    <a href="/tutor/Announcement">Announcement</a>
+    <hr>
+    <a href="/tutor/AddEvents">Events</a>
+    <hr>
+    <a href="/tutor/Gallary">Gallary</a>
+    <hr>
+    <a href="/tutor/Logout">Logout</a>
   </div>
 
 
   <nav class="navbar navbar-expand-lg navbar-light ">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
     <a class="navbar-brand" href="/tutor/tutorIn"><img src="/images/14df067f-1881-4ae9-bdbc-e63a69fd4c91_200x200.png"
         alt="" style="height: 4rem;"></a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav " style="margin-left: 90%;">
 
-
-
-        <li class="nav-item">
-          <a class="nav-link btn btn-danger " style="color: white;" href="/tutor/tutor-logout">Logout</a>
-        </li>
-
-
       </ul>
-
-
-
-
-
-
-
+    </div>
 </header>
 
 {{/if}}

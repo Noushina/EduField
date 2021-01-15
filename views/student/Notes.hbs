@@ -1,0 +1,82 @@
+<section>
+    <div class="backdrop" style="text-align: center;">
+
+        <h3>Notes</h3>
+        <input type="text" id="myInputTopic" onkeyup="myFunction()" placeholder="Search Topic " title="Search">
+        <div class="table-responsive-sm">
+            <table id="myTable" class="table table-stripped ">
+                <thead>
+                    <tr class="tableHead ">
+                        <th>Date</th>
+                        <th scope="col">Topic</th>
+                        <th scope="col">Note</th>
+                        <th>Class</th>
+                        <th>YouTube
+                        <th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{#each notes}}
+                    <tr>
+                        <th style="width: 50px!important;">{{this.date}} </th>
+                        <td scope="row">{{this.topic}} </td>
+                        <td><a class="pdf" href="/Notes/{{this._id}}.pdf"><i class="far fa-file-pdf"></i></i></a>
+                            <a class="download" href="/Notes/{{this._id}}.pdf" style="padding-left:25px;"
+                                onclick="return confirm('Are you sure, Do you want to download {{this.topic}} ?')"
+                                download="/Notes/{{this._id}}.pdf"><i class="fas fa-download"></i>
+                            </a>
+                        </td>
+                        <td><video width="200rem" height="100rem" id="myClass" onchange="playPauseThisVideo()" controls
+                                loops>
+                                <source src="/Class/{{this._id}}.mp4" type="video/mp4">
+                            </video>
+                            <a class="download" href="/Class/{{this._id}}.mp4" style="padding-left:25px;"
+                                onclick="return confirm('Are you sure, Do you want to download {{this.topic}} ?')"
+                                download="/Class/{{this._id}}.mp4"><i class="fas fa-download"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <iframe width="150rem" height="150rem" src="{{this.youtube}}/embed">
+                            </iframe>
+                        </td>
+
+
+
+
+
+                    </tr>
+                    {{/each}}
+
+
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</section>
+
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInputTopic");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+</script>

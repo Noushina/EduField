@@ -1,0 +1,145 @@
+<div class="container uprofile">
+
+ 
+    <div class="panel-body">
+        <div style="margin-bottom: 5%; padding-left: 20%;">
+            <h3>Edit Profile</h3>
+            
+        </div>
+        <div class="form-horizontal">
+            <form action="/tutor/EditProfile/{{ProfileDetails._id}} " enctype="multipart/form-data" method="POST">
+                <div class="form">
+                    <div class="form-group">
+                       
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label"> Name:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Name" placeholder=" Name" value="{{ ProfileDetails.Name}}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label"> Profile Pic:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <img src="/Profile-Pic/{{ ProfileDetails._id}}.jpg"  alt="" style="width: 100px;hight:auto"
+                                    id="imgView" class="pt-3 pb-3">
+                                <input type="file" class="" name="image" id="image" accept="image/jpeg"
+                                    style="overflow: hidden;" onchange="viewImage(event)" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label">Subject:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Subject" placeholder="Subject" value="{{ ProfileDetails.Subject}} " required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Contact:</h4><br>
+                            </div>
+                            <div class="col-2">
+                                <label class="control-label">Mobile No:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="Mobile" name="Mobile" placeholder="Mobile No" value="{{ ProfileDetails.Mobile}} " required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label">Email:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="email" name="Email" placeholder="Email" value="{{ ProfileDetails.Email}} " required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Experiences:</h4><br>
+
+                            </div>
+                            <div class="col-2">
+
+                                <label class="control-label">Institutions:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Institutions" placeholder="Institutions" value="{{ ProfileDetails.Institutions}} " required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label">Years of Experiance:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Years"
+                                    placeholder="Years of Experiance" value="{{ ProfileDetails.Years}} " required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-2">
+                                <label class="control-label">Description:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Description" placeholder="Description" value="{{ ProfileDetails.Description}} " required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-12">
+                                <h4>Education:</h4><br>
+                            </div>
+                            <div class="col-2">
+                                <label class="control-label">Courses:</label>
+
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" name="Courses" placeholder="Courses" value="{{ ProfileDetails.Courses}} " required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-primary" type="submit" onclick="return confirm('Are You Suer?')">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div> <!-- end form-horizontal -->
+    </div> <!-- end panel-body -->
+    
+
+</div> <!-- end container-fluid -->
+
+<script>
+  function viewImage(event){
+    document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+  }
+</script>

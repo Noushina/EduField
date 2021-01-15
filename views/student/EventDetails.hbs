@@ -1,0 +1,83 @@
+<section>
+    <div class="container profile" style="align-items: center;">
+        <div style="margin-top: 20px; width:90%; align-items: center;">
+            <div style="text-align: center; ">
+
+            </div>
+            <div class="row pt-5 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>Event</h4>
+                </div>
+                <div class="col-md-6">: {{events.Event}} </div>
+            </div>
+
+            <div class="row pt-5 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>Topic</h4>
+                </div>
+                <div class="col-md-6">: {{events.topic}}</div>
+            </div>
+            <div class="row pt-5 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>Conducted By</h4>
+                </div>
+                <div class="col-md-6">: {{events.ConductedBy}}</div>
+            </div>
+            <div class="row pt-5 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>Date</h4>
+                </div>
+                <div class="col-md-6">: {{events.date}}</div>
+            </div>
+            <div class="row pt-5 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>PLace</h4>
+                </div>
+                <div class="col-md-6">: {{events.place}}</div>
+            </div>
+            <div class="row pt-5 pb-3" style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>Type</h4>
+                </div>
+                <div class="col-md-6">: {{events.type}}</div>
+            </div>
+            {{#if events.amount}}
+            <div>
+            </div>
+            <div class="row pt-5 pb-3" style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h4>Fee</h4>
+                </div>
+                <div class="col-md-6">: Rs. {{events.amount}}</div>
+            </div>
+            <div>
+                {{/if}}
+                <div class="row pt-5">
+
+                    <div class="col-md-6"><video style="height: 150px;width: 200px;" src="/events/{{events._id}}.mp4"
+                            controls></video>
+                    </div>
+                    <div class="col-md-6"><img style="height: 150px;width: 200px;" src="/events/{{events._id}}.jpg"
+                            alt="">
+                    </div>
+
+                </div>
+
+
+                <a href="/RegisterEvents/{{events._id}}" class="btn btn-primary" style="margin-top: 3rem;">Register</a>
+            </div>
+            <hr>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</section>

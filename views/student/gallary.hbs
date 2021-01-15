@@ -1,0 +1,23 @@
+<section>
+  <div class="backdrop" style="text-align: center;">
+    <h1 class="pb-5 pt-5" style="align-items: center;">Gallary</h1>
+
+    <div class="row">
+      {{#each Photos}}
+      <figure class="col-md-4 pb-5">
+        <a href="/gallary/{{this._id}}.jpg" data-size="1600x1067">
+          <img alt="picture" src="/gallary/{{this._id}}.jpg" class="img-fluid">
+
+        </a>
+        <p>{{this.name}}</p>
+
+      </figure>
+      {{/each}}
+
+    </div>
+  </div>
+
+  </div>
+
+  </div>
+</section>

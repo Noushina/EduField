@@ -1,0 +1,43 @@
+<section>
+  <div class="backdrop">
+    <div class="col-12 " style="text-align: center; margin-top:2rem;">
+      <h3>Announcement</h3>
+
+
+
+
+
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr class="tableHead">
+          <th scope="col">Date</th>
+          <th scope="col"></th>
+          <th></th>
+          <th scope="col">Subject</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each announcement}}
+        <tr>
+
+
+          <td>{{this.date}}</td>
+          <td></td>
+          <td></td>
+          <td><a href="/AnnouncementDetails">{{this.message}}</a></td>
+
+
+
+
+
+
+        </tr>
+        {{/each}}
+
+
+
+      </tbody>
+    </table>
+  </div>
+</section>

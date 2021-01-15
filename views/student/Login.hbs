@@ -1,0 +1,48 @@
+<section class="login">
+  <div class="background">
+    <a href="/">
+      <img src="/images/14df067f-1881-4ae9-bdbc-e63a69fd4c91_200x200.png" style="height: 7rem;" alt="">
+    </a>
+    <div class="login-box">
+      <h1>Login</h1>
+
+      <form action="/Login" method="POST">
+        {{#if studentLogginErr}}
+        <p class="error" style="color: beige;">{{studentLogginErr}}</p>
+        {{/if}}
+
+
+
+        <div class="textbox">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <input type="text" id="username" name="username" placeholder="Username" />
+        </div>
+
+        <div class="textbox">
+          <i class="fa fa-lock" aria-hidden="true"></i>
+          <input type="password" placeholder="Password" name="password" id="myInput" />
+          <span class=" fa fa-eye t" onclick="myFunction()" style=" color:white"> </span>
+        </div>
+
+        <button class="signinbtn">Log In</button>
+        <p style="color: rgb(230, 229, 223);">or</p>
+        <a class="btn" style="background-color: rgb(15, 182, 224);" href="/sendOtp">Log in by OTP
+          verification</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+  }
+
+
+</script>

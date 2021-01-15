@@ -1,0 +1,55 @@
+<section>
+    <div class="backdrop">
+        <div class="col-md-12 " style="text-align: center; ; margin-top:4rem;">
+            <h3>Assignments</h3>
+            <a class="btn btn-primary  mb-5" href="/SubmitAssignments">
+                Submit Assignments
+            </a>
+
+        </div>
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="tableHead">
+                        <th>Date</th>
+                        <th scope="col">Topic</th>
+
+                        <th>Date of submission</th>
+                        <th scope="col">File</th>
+                        <th scope="col">Download</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each assignment}}
+
+                    <tr>
+                        <th>{{this.date}} </th>
+
+                        <th scope="row">{{this.topic}}</th>
+                        <td>{{this.Date}} </td>
+
+                        <td><a class="pdf" href="/Assignments/{{this._id}}.pdf"><i class="far fa-file-pdf"></i></i></a>
+                        </td>
+
+                        <td>
+                            <a class="download" href="/Assignments/{{this._id}}.pdf" style="padding-left:25px;"
+                                onclick="return confirm('Are you sure, Do you want to download {{this.topic}} ?')"
+                                download="/Assignments/{{this._id}}.pdf"><i class="fas fa-download"></i>
+                            </a>
+                        </td>
+
+
+
+
+                    </tr>
+                    {{/each}}
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

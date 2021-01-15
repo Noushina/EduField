@@ -1,0 +1,56 @@
+<section class="">
+  <div class="profile">
+    <div class="profile-row">
+      <div class="profile-wrap">
+        {{#each Profile}}
+
+        <div class="profile-name">{{this.Name}} </div>
+        <div class="profile-subname">{{this.Subject}} </div>
+        <div class="profile-content">
+          <div class="head-title">Exprecince</div>
+          <div class="profile-content-item">
+            <div class="title">{{this.Institutions}} </div>
+            <div class="subtitle">{{this.Years}}</div>
+            <div class="time"></div>
+            <div class="exprecince">{{this.Description}} </div>
+          </div>
+
+
+        </div>
+        <div class="profile-content">
+          <div class="head-title">Education</div>
+          <div class="profile-content-item">
+            <div class="title">{{this.Courses}}
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="Profile-wrap">
+        <div class="personal">
+          <img src="/Profile-Pic/{{this._id}}.jpg" alt="" />
+        </div>
+        <div class="info">
+          <div class="title">Contact</div>
+          <p><a href="">{{this.Email}}</a></p>
+          <p><a href="">{{this.Mobile}}</a></p>
+          <p></p>
+        </div>
+        {{/each}}
+        <div class="update">
+          {{#if Profile}}
+          {{#each Profile}}
+                    <a href="/tutor/EditProfile/{{this._id}}" class="btn profileup">Edit Your Profile</a>
+
+          <br>
+          {{/each}}
+          {{else}}
+                    <a href="/tutor/UpdateProfile" class="btn profileup">Update Your Profile</a>
+
+          {{/if}}
+
+        </div>
+        
+
+</section>

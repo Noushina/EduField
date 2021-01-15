@@ -1,0 +1,297 @@
+<section>
+    <div class="container profile ">
+
+
+        <div class="panel-body">
+            <div style="margin-bottom: 5%; padding-left: 20%;">
+                <h3>Add Student Details</h3>
+            </div>
+            <div class="form-horizontal">
+                <form id="myForm" action="" enctype="multipart/form-data">
+                    <div class="form">
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="control-label">Reg No:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="Regno" placeholder="Reg No" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Name:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="Sname" placeholder="Student's Name"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Class:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="Class" placeholder="Class" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Semester:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="Semester" placeholder="Semester"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label"> Profile Pic:</label>
+
+                                </div>
+                                <div class="col-6">
+
+                                    <input type="file" name="source-image" accept="image/*" id="sourceImage"
+                                        onchange="ICropper.readUrl(this);" />
+                                    <div class="image-container">
+                                        <img id="cropper-canvas-image" src="#" alt="your image"
+                                            style="width: 250px;height: 150px;" />
+                                    </div>
+                                    <div id="cropped-result"></div>
+                                    <button class="btn btn-primary" onclick="ICropper.cropImage(this)">Crop</button>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Gender:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="radio" id="male" name="gender" value="Male">
+                                        <label for="male">Male</label><br>
+                                        <input type="radio" id="female" name="gender" value="Female">
+                                        <label for="female">Female</label><br>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Mobile:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="tel" name="Smobile" placeholder="Mobile"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Email:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="email" name="Semail"
+                                            placeholder="example@gmail.com" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Address:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <textarea class="form-control" type="text" name="Saddress" placeholder="Address"
+                                            required>
+                            </textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Username:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="text" name="Username" placeholder="Username"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Password:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="form-control" type="text" name="Spassword" placeholder="Passwor"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button class="btn btn-primary save " type="submit" id="submit">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+
+
+            </div> <!-- end form-horizontal -->
+        </div> <!-- end panel-body -->
+
+    </div> <!-- end container-fluid -->
+</section>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script name="jquery-croper-script">
+    !function (e, r) { "object" == typeof exports && "undefined" != typeof module ? r(require("jquery"), require("cropperjs")) : "function" == typeof define && define.amd ? define(["jquery", "cropperjs"], r) : r(e.jQuery, e.Cropper) }(this, function (c, s) { "use strict"; if (c = c && c.hasOwnProperty("default") ? c.default : c, s = s && s.hasOwnProperty("default") ? s.default : s, c.fn) { var e = c.fn.cropper, d = "cropper"; c.fn.cropper = function (p) { for (var e = arguments.length, a = Array(1 < e ? e - 1 : 0), r = 1; r < e; r++)a[r - 1] = arguments[r]; var u = void 0; return this.each(function (e, r) { var t = c(r), n = "destroy" === p, o = t.data(d); if (!o) { if (n) return; var f = c.extend({}, t.data(), c.isPlainObject(p) && p); o = new s(r, f), t.data(d, o) } if ("string" == typeof p) { var i = o[p]; c.isFunction(i) && ((u = i.apply(o, a)) === o && (u = void 0), n && t.removeData(d)) } }), void 0 !== u ? u : this }, c.fn.cropper.Constructor = s, c.fn.cropper.setDefaults = s.setDefaults, c.fn.cropper.noConflict = function () { return c.fn.cropper = e, this } } });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.4.1/cropper.min.css" />
+
+<script>
+
+    let ICropper = (function ($) {
+        let $cropperCanvasImage = $('#cropper-canvas-image');
+        return {
+            readUrl,
+            cropImage
+        }
+
+        function readUrl(input) {
+            if (input.files && input.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function (e) {
+                    $cropperCanvasImage.attr('src', e.target.result)
+                };
+                reader.readAsDataURL(input.files[0]);
+                setTimeout(initCropper, 1000);
+            }
+        }
+
+        function initCropper() {
+            $cropperCanvasImage.cropper({
+                aspectRatio: 1 / 1
+            });
+        }
+
+        function cropImage() {
+            let imgUrl = $cropperCanvasImage.data('cropper').getCroppedCanvas().toDataURL();
+            let img = document.createElement("img");
+            let style = document.createAttribute('style')
+            style.value = 'height:200px;width:200px;'
+            img.setAttributeNode(style)
+            img.setAttribute("id", 'img');
+
+            img.src = imgUrl;
+            $("#cropped-result").append(img);
+            console.log(img)
+
+
+
+
+
+
+        }
+
+    })(jQuery)
+        ;
+</script>
+
+
+
+<script>
+    $(document).on('click', "#submit", function (e) {
+        e.preventDefault();
+
+        var blob = new Blob();
+        var formData = new FormData($("#myForm")[0]);
+        console.log(formData)
+        let img = document.getElementById('img').src
+        console.log(img)
+
+        function dataURLtoFile(dataurl, filename) {
+
+            var arr = dataurl.split(','),
+                mime = arr[0].match(/:(.*?);/)[1],
+                bstr = atob(arr[1]),
+                n = bstr.length,
+                u8arr = new Uint8Array(n);
+
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+
+            return new File([u8arr], filename, { type: mime });
+        }
+
+        //Usage example:
+        var file = dataURLtoFile(img, 'hello.png');
+        formData.append('img', file)
+        console.log(formData)
+        console.log(Array.from(formData))
+
+        let data = JSON.stringify(Array.from(formData))
+        console.log(data)
+        $.ajax({
+            url: '/tutor/AddStudents',
+            method: 'post',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            enctype: 'multipart/form-data',
+            success(response) {
+
+                location.href = '/tutor/StudentList'
+            }
+
+        })
+
+    })
+</script>

@@ -1,0 +1,77 @@
+<section>
+    <div class="container profile backdrop" style="align-items: center;">
+        <div style="margin-top: 20px; width:90%; align-items: center;">
+            <div style="text-align: center; ">
+                <h3>Event Details</h3>
+
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>Event</h5>
+
+
+                </div>
+                <div class="col-md-6">: {{events.Event}} </div>
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>
+                        Topic</h5>
+                </div>
+                <div class="col-md-6">: {{events.topic}}</div>
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>Conducted By</h5>
+                </div>
+                <div class="col-md-6">: {{events.ConductedBy}}</div>
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>Date</h5>
+                </div>
+                <div class="col-md-6">: {{events.date}}</div>
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>PLace</h5>
+                </div>
+                <div class="col-md-6">: {{events.place}}</div>
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>Type</h5>
+                </div>
+                <div class="col-md-6">: {{events.type}}</div>
+            </div>
+            {{#if events.amount}}
+            <div>
+            </div>
+            <div class="row pt-2 " style="border: aquamarine,solid;">
+                <div class="col-md-6">
+                    <h5>Fee</h5>
+                </div>
+                <div class="col-md-6">: Rs. {{events.amount}}</div>
+            </div>
+            <di class="row pt-2">
+
+                <div class="col-md-6"><video style="height: 150px;width: 200px;" src="/events/{{events._id}}.mp4"
+                        controls></video>
+                </div>
+                <div class="col-md-6"><img style="height: 150px;width: 200px;" src="/events/{{events._id}}.jpg" alt="">
+                </div>
+
+            </di>
+            <div>
+                {{/if}}
+                <a href="/tutor/eventRegistery/{{events._id}}" class="btn btn-success mt-2 mb-2">Registered
+                    students</a>
+
+
+                <a href="/tutor/DeleteEvents/{{events._id}}" class="btn btn-danger mt-2 mb-2">Delete</a>
+            </div>
+            <hr>
+        </div>
+        <hr>
+    </div>
+</section>

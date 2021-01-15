@@ -1,0 +1,52 @@
+<section>
+  <div class="backdrop">
+    <div class="col-12 " style="text-align: center; margin-top:2rem;">
+      <h3>Student Register</h3>
+      <a href="/tutor/AddStudents" class="btn btn-primary mt-1 mb-5">Add Students
+      </a>
+
+    </div>
+    <div class="table-responsive-sm">
+
+      <table class="table table-striped">
+        <thead>
+          <tr class="tableHead">
+            <th scope="col">Reg No</th>
+            <th scope="col">Name</th>
+            <th>Gender</th>
+
+            <th scope="col">Mobile</th>
+            <th>Email</th>
+
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each students}}
+          <tr>
+
+            <th scope="row">{{this.Regno}} </th>
+            <td><a href="/tutor/StudentDetails/{{this._id}}" style="color: black;font-size: 1rem;">{{this.Sname}}</a>
+            </td>
+            <td>{{this.gender}}</td>
+
+            <td>{{this.Smobile}} </td>
+            <td>{{this.Semail}} </td>
+
+            <td><a href="/tutor/EditStudent/{{this._id}}" title="Edit"
+                onclick="return confirm('Do you want to make changes?'"><i class="fas fa-pencil-alt"
+                  style="color: blue;"></i></a>
+              <a href="/tutor/DeleteStudent/{{this._id}} " title="Delete" style="padding-left:25px;"
+                onclick="return confirm('Are you sure, Do you want to delete {{this.Sname}}?')"><i
+                  class="fas fa-trash-alt" style="color: rgb(192, 20, 20);"></i></a>
+            </td>
+
+
+          </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

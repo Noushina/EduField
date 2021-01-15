@@ -1,0 +1,205 @@
+<section>
+    <div class="container profile backdrop">
+
+
+        <div class="panel-body">
+            <div style="margin-bottom: 5%; padding-left: 20%;">
+                <h3>Announcement</h3>
+                <h4>{{Date}}</h4>
+            </div>
+            <div class="form-horizontal">
+                <form enctype="multipart/form-data" id="form">
+                    <div class="form">
+
+
+
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Message:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="form-control" type="text" name="message" placeholder="Topic" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Description:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <textarea class="form-control" type="text" name="description" placeholder=""
+                                        require>
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <label class="control-label">Pdf:</label>
+
+                                </div>
+                                <div class="col-6">
+                                    <input class="" type="file" name="pdf" accept="application/pdf">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+
+                                    <div class="col-4">
+                                        <label class="control-label">Image:</label>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <input class="" type="file" name="image" accept="image/jpeg">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row">
+
+                                        <div class="col-4">
+                                            <label class="control-label">Video:</label>
+
+                                        </div>
+                                        <div class="col-6">
+                                            <input class="" type="file" name="video" accept="video/mp4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-sm-10">
+                                            <button class="btn btn-primary save " type="submit"
+                                                id="submit">Submit</button>
+                                        </div>
+                                    </div>
+
+
+
+                </form>
+
+                <div class="progress">
+                    <div class="bar" id="bar" style="background-color: blue;"></div>
+                    <div class="percent">0%</div>
+                </div>
+            </div> <!-- end form-horizontal -->
+        </div> <!-- end panel-body -->
+
+    </div> <!-- end container-fluid -->
+    </div>
+
+
+    {{#each announcement}}
+
+    <hr>
+    <div class="container" style="align-items: center;">
+        <div>
+            <div style="text-align: center;">
+                <h5>{{this.date}}</h5>
+
+            </div>
+            <div class="row pt-5 pb-5" style=>
+                <div class="col-md-5">
+                    <h4>Message</h4>
+                </div>
+                <div class="col-md-7">: {{this.message}} </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>Description</h4>
+                </div>
+                <div class="col-md-7">
+                    <P style="2vw">: {{this.description}}</P>
+                </div>
+            </div>
+
+            <div class=" row pt-5">
+
+                <div class="col-md-4" style="text-align: center;align-items: center;">
+
+                    <a class="pdf" href="/Announcement/{{this._id}}.pdf"><i class="far fa-file-pdf"
+                            style="margin-top:50px!important ; font-size: 50px;"></i></i></a>
+                </div>
+                <div class="col-md-4" style="text-align: center;align-items: center;">
+                    <img src="/Announcement/{{this._id}}.jpg" style="height: 200px;width:200px" alt="">
+
+                </div>
+                <div class="col-md-4" style="text-align: center;align-items: center;">
+                    <video src="/Announcement/{{this._id}}.mp4" type="video/mp4" style="width: 250px; height:200px;"
+                        controls>
+
+                    </video>
+                </div>
+                <div style="margin-left:auto; margin-top:20px">
+                    <a class='btn btn-danger' href="/tutor/deleteAnnouncement/{{this._id}}">Delete</a>
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </div>{{/each}}
+</section>
+
+
+
+<script>
+
+    $(document).on('click', "#submit", function (e) {
+        e.preventDefault();
+
+        var formData = new FormData($("#form")[0]);
+        $.ajax({
+
+
+            url: "/tutor/Announcement",
+            type: 'POST',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            enctype: 'multipart/form-data',
+
+
+            xhr: function () {
+                var xhr = new window.XMLHttpRequest();
+
+                xhr.upload.addEventListener("progress", function (evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = evt.loaded / evt.total;
+                        percentComplete = parseInt(percentComplete * 100);
+                        console.log(percentComplete);
+                        var percentVal = percentComplete + '%';
+                        $('.bar').width(percentVal);
+                        $('.percent').html(percentVal)
+
+
+
+
+
+
+                        if (percentComplete === 100) {
+                            location.href = '/tutor/Announcement'
+                        }
+
+                    }
+                }, false);
+
+                return xhr;
+            }
+
+
+
+
+        })
+    })
+
+</script>

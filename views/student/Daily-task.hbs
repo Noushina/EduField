@@ -1,0 +1,79 @@
+<section>
+    <div class="backdrop" style="text-align: center;">
+        <h1>Daily Task</h1>
+        {{#if DailyTask}}
+        <p id="date">{{DailyTask.date}}</p>
+        <div class="row">
+            <div class="col-md-6" style="text-align: center;align-items: center;">
+                <h3>Class & Note</h3>
+                <div style="width: 100%; height: 100px;">
+                    <a class="pdf" href="/Notes/{{DailyTask._id}}.pdf" title="Open"><i class="far fa-file-pdf"></i>
+                        {{DailyTask.topic}}</i></a>
+
+                </div>
+                <div>
+                    <video width="350rem" height="200rem" id="video" controls>
+                        <source src="/Class/{{DailyTask._id}}.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="col-md-6" style="text-align: center;align-items: center;">
+
+
+                <h3>Assignment</h3>
+                {{#if DailyAssignments}}
+
+
+                <a class="pdf" href="/Assignments/{{DailyAssignments._id}}.pdf" title="Open" style=""><i
+                        class="far fa-file-pdf"> {{DailyAssignments.topic}}</i>
+                </a>
+                {{else}}
+                <div class="col-md-12" style="text-align: center;align-items: center;">
+                    <h5 style="text-align: center;">Complete all previous Assignments </h5>
+                </div>
+                {{/if}}
+            </div>
+
+
+
+
+
+
+        </div>
+        {{else}}
+        <div class="col-md-12" style="text-align: center;align-items: center; margin-top:50px;">
+            <h3>Tasks will update soon</h3>
+        </div>
+        {{/if}}
+    </div>
+
+
+
+</section>
+
+<script>
+
+    var vid = document.getElementById("video");
+    vid.onplay = function () {
+        console.log('play')
+        $.ajax({
+
+            url: '/registerAttendance',
+            method: 'post',
+            data: {
+                attendance: 'Present',
+            },
+            success: (response) => {
+
+                swal({
+                    title: "Present",
+                    text: "Your attendance registered!",
+                    icon: "success",
+                });
+            }
+        })
+    };
+
+
+</script>

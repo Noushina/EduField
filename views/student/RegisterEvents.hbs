@@ -1,0 +1,183 @@
+<div class="container backdrop">
+
+
+    <div class="panel-body">
+        <div style="margin-bottom: 5%; padding-left: 20%;">
+            <h3>Register Here</h3>
+        </div>
+        <div class="form-horizontal">
+            <form id="registerForm" name="registerForm" action="" enctype="" method="POST">
+                <div class="form">
+
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-3">
+                                <label class="control-label">Name:</label>
+
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" type="text" name="Name" placeholder="Name" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-3">
+                                <label class="control-label">Class:</label>
+
+                            </div>
+                            <div class="col-6">
+                                <input class="form-control" type="text" name="Class" placeholder="Class" required>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="col-3">
+                            <label class="control-label">Register No:</label>
+
+                        </div>
+                        <div class="col-6">
+                            <input class="form-control" type="text" name="regNo" placeholder="Reg No" required>
+                        </div>
+                    </div>
+                    <input type="text" name="StudentId" value="{{Student._id}}" hidden>
+                    <input type="text" name="eventId" value="{{events._id}}" hidden>
+
+
+
+
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col-3">
+                                <label class="control-label">Register with:</label>
+
+                            </div>
+                            <div class="col-6">
+                                <input type="radio" id="razorpay" name="paymentmode" value="razorpay">
+                                <label for="razorpay">
+                                    <img style="height: 60px; width: 50px;"
+                                        src="https://i0.wp.com/www.ecommerce-nation.com/wp-content/uploads/2019/02/Razorpay-the-new-epayment-that-will-break-everything-in-2019.png?fit=1000%2C600&ssl=1"
+                                        alt="">
+                                </label><br>
+                                <input type="radio" id="paypal" name="paymentmode" value="paypal">
+                                <label for="paypal">
+                                    <img style="height: 50px; width: 60px;"
+                                        src="data:image/png;base64,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"
+                                        alt="">
+                                </label><br>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-success save " type="submit">Register</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </form>
+
+
+    </div> <!-- end form-horizontal -->
+</div> <!-- end panel-body -->
+
+</div> <!-- end container-fluid -->
+
+<script>
+    $('#registerForm').submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/registerEvents/',
+            method: 'post',
+            data: $('#registerForm').serialize(),
+            success: (response) => {
+                console.log(response)
+                if (response.freeEvent) {
+                    swal({
+                        title: "",
+                        text: "Successfully registered!",
+                        icon: "success",
+                    });
+                } else if (response.paypal) {
+                    console.log(response.link)
+                    location.href = response.link
+
+
+                } else if (response, Razorpay) {
+                    console.log(response)
+
+                    razorpayPayment(response.order)
+                }
+            }
+        })
+    })
+
+    function razorpayPayment(order) {
+        var options = {
+            "key": "rzp_test_b2dNXEyx10vuZV", // Enter the Key ID generated from the Dashboard
+            "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Noushi's",
+            "description": "Test Transaction",
+            "image": "https://example.com/your_logo",
+            "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+
+
+                verifyPayment(response, order)
+            },
+            "prefill": {
+                "name": "Gaurav Kumar",
+                "email": "gaurav.kumar@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Razorpay Corporate Office"
+            },
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+
+
+    }
+
+    function verifyPayment(payment, order) {
+        $.ajax({
+            url: '/verify-payment',
+            data: {
+                payment,
+                order
+            },
+            method: 'post',
+            success: (response) => {
+                console.log
+                    (response)
+                if (response.status) {
+                    swal({
+                        title: "",
+                        text: "Successfully registered!",
+                        icon: "success",
+                    });
+
+                } else {
+                    alert('Payment failed')
+                }
+            }
+        })
+    }
+</script>
